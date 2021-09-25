@@ -4,13 +4,7 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    if params[:sort_update]
-      @books = Book.latest
-    elsif params[:sort_rate]
-      @books = Book.ratest
-    else
-      @books = Book.all
-    end
+    @books = Book.all.order(params[:sort])
   end
 
   def show
