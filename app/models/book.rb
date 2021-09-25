@@ -22,5 +22,8 @@ class Book < ApplicationRecord
       Book.where('title LIKE ?', '%' + content + '%')
     end
   end
+  
+  scope :latest, -> {order(updated_at: :desc)}
+  scope :ratest, -> {order(rate: :desc)}
 
 end
