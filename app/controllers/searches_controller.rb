@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
 
   def search
     # @model = params[:model]
-    @content = params[:content]
+    # @content = params[:content]
     # @method = params[:method]
     # if @model == 'user'
     #   @records = User.search_for(@content, @method)
@@ -12,7 +12,8 @@ class SearchesController < ApplicationController
     # end
     
     # カテゴリのみの検索
-    @records = Book.search_for(@content)
+    @book = Book.new
+    @books = Book.search(params[:keyword])
   end
 
 end

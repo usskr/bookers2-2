@@ -24,8 +24,8 @@ class Book < ApplicationRecord
   # end
 
   # カテゴリのみの検索
-  def self.search_for(content)
-    Book.where(category: content)
+  def Book.search(search_word)
+    Book.where(['category LIKE ?', "#{search_word}"])
   end
 
 end
